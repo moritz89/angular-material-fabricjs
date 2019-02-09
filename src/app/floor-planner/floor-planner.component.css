@@ -1,0 +1,20 @@
+.example-card-right{
+  max-width: 200px;
+  position: absolute;
+  /* top offset from top of page, not header bar*/
+  top: 120px;
+  right: 15px;
+}
+
+.example-card-left{
+  max-width: 200px;
+  position: absolute;
+  /* top offset from top of page, not header bar*/
+  top: 120px;
+  left: 15px;
+}
+
+.example-header-image {
+  background-image: url('https://cdn-img-2.wanelo.com/p/676/96c/35d/b7e55c9f1e1849573088f1e/x354-q80.jpg');
+  background-size: cover;
+}
