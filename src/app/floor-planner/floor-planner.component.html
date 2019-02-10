@@ -3,34 +3,67 @@
   <mat-card class="example-card-left">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      <mat-card-title>Components</mat-card-title>
+      <mat-card-subtitle>Click to add</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="https://upload.wikimedia.org/wikipedia/commons/2/20/Shiba_Inu.jpg" alt="Photo of a Shiba Inu">
     <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span flex></span>
+              Grow Systems
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-action-list>
+            <mat-list-item
+              *ngFor="let growSystem of growSystems"
+              (click)="addComponentToCanvas(growSystem)"
+            >
+              <mat-icon mat-list-icon>add</mat-icon>
+              <h4 mat-line>{{ growSystem.name }}</h4>
+            </mat-list-item>
+          </mat-action-list>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Electronics
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-action-list>
+            <mat-list-item
+              *ngFor="let electronicComponent of electronicComponents"
+              (click)="addComponentToCanvas(electronicComponent)"
+            >
+              <mat-icon mat-list-icon>add</mat-icon>
+              <h4 mat-line>{{ electronicComponent.name }}</h4>
+            </mat-list-item>
+          </mat-action-list>
+        </mat-expansion-panel>
+      </mat-accordion>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
+      <button mat-button>HIDE</button>
     </mat-card-actions>
   </mat-card>
+
   <mat-card class="example-card-right">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>Shiba Inu</mat-card-title>
       <mat-card-subtitle>Dog Breed</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="https://upload.wikimedia.org/wikipedia/commons/2/20/Shiba_Inu.jpg" alt="Photo of a Shiba Inu">
+    <img
+      mat-card-image
+      src="https://upload.wikimedia.org/wikipedia/commons/2/20/Shiba_Inu.jpg"
+      alt="Photo of a Shiba Inu"
+    />
     <mat-card-content>
       <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
+        The Shiba Inu is the smallest of the six original and distinct spitz
+        breeds of dog from Japan. A small, agile dog that copes very well with
+        mountainous terrain, the Shiba Inu was originally bred for hunting.
       </p>
     </mat-card-content>
     <mat-card-actions>

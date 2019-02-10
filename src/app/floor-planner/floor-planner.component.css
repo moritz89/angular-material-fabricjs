@@ -7,10 +7,10 @@
 }
 
 .example-card-left{
-  max-width: 200px;
+  max-width: 400px;
   position: absolute;
   /* top offset from top of page, not header bar*/
-  top: 120px;
+  top: 80px;
   left: 15px;
 }
 

@@ -2,6 +2,10 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import {fabric} from 'fabric';
 import {fromEvent, Observable, Subscription} from 'rxjs';
 
+export interface Section {
+  name: string;
+}
+
 @Component({
   selector: 'app-floor-planner',
   templateUrl: './floor-planner.component.html',
@@ -17,6 +21,17 @@ export class FloorPlannerComponent implements OnInit, AfterViewInit {
   resizeObservable$: Observable<Event>;
   resizeSubscription$: Subscription;
 
+  growSystems: Section[] = [
+    {name: 'NFT'},
+    {name: 'Deep water culture'},
+    {name: 'Grow tower'},
+    {name: 'Flood & drain'}
+  ];
+  electronicComponents: Section[] = [
+    {name: 'Pump'},
+    {name: 'Water sensor'}
+  ];
+
   constructor() {}
 
   ngOnInit() {
@@ -29,18 +44,23 @@ export class FloorPlannerComponent implements OnInit, AfterViewInit {
 
     // Performs the canvas setup by adding a background and interactive element
     this.canvas = new fabric.Canvas('floor-plan-canvas');
-    this.canvas.backgroundColor = 'green';
+    this.canvas.backgroundColor = 'lightgray';
     this.canvas.add(new fabric.IText(
         'You can edit and move me!', {left: 300, top: 100, angle: 30}));
   }
 
-  // Sets the canvas dimensions during the initial render
   ngAfterViewInit() {
+    // Sets the canvas dimensions during the initial render
     this.canvas.setDimensions(
         {width: this.mainContainer.nativeElement.offsetWidth});
   }
 
   ngOnDestroy() {
-    this.resizeSubscription$.unsubscribe()
+    this.resizeSubscription$.unsubscribe();
+  }
+
+  addComponentToCanvas(item: Section) {
+    this.canvas.add(
+        new fabric.IText(item.name, {left: 400, top: 200, angle: -30}));
   }
 }
